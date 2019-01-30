@@ -33,9 +33,12 @@ class Article {
   removeArticle() {
     this.domElement.classList.add('article-remove');
     // wait for the CSS animation to complete
+    // grab wait duration from our CSS
+    const transition = getComputedStyle(this.domElement)['transition'];
+    const wait = parseFloat(transition.split(' ')[1]) * 1000;
     setTimeout(() => {
       this.domElement.style.display = 'none';
-    }, 200);
+    }, wait);
   }
 }
 
