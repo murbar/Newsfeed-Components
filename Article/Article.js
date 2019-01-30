@@ -32,7 +32,11 @@ class Article {
   }
 
   removeArticle() {
-    this.domElement.style.display = 'none';
+    this.domElement.classList.add('article-remove');
+    // wait for the CSS animation to complete
+    setTimeout(() => {
+      this.domElement.style.display = 'none';
+    }, 200);
   }
 }
 
