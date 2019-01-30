@@ -16,6 +16,8 @@ class Article {
     readButton.textContent = 'Mark Read';
     this.readButton = readButton;
     this.domElement.appendChild(this.readButton);
+
+    this.readButton.addEventListener('click', () => this.removeArticle());
   }
 
   expandArticle() {
@@ -27,6 +29,10 @@ class Article {
     } else {
       this.expandButton.textContent = 'Click to Expand';
     }
+  }
+
+  removeArticle() {
+    this.domElement.style.display = 'none';
   }
 }
 
